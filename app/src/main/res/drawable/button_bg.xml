@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/drawable/button_background.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Default state -->
+    <item>
+        <shape>
+            <solid android:color="@color/yellow" />
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+</selector>
+
+

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.myrecipeapp.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/editProfile"
+        android:name="com.example.myrecipeapp.EditProfile"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
+
+    <fragment
+        android:id="@+id/searchRecipes"
+        android:name="com.example.myrecipeapp.SearchRecipes"
+        android:label="fragment_search_recipes"
+        tools:layout="@layout/fragment_search_recipes" />
+
+
+    <fragment
+        android:id="@+id/favouriteRecipes"
+        android:name="com.example.myrecipeapp.FavouriteRecipes"
+        android:label="fragment_favourite_recipes"
+        tools:layout="@layout/fragment_favourite_recipes" />
+
+    <fragment
+        android:id="@+id/giveFeedback"
+        android:name="com.example.myrecipeapp.GiveFeedback"
+        android:label="fragment_give_feedback"
+        tools:layout="@layout/fragment_give_feedback" />
+
+    <!-- Global action to navigate to homeFragment -->
+    <action
+        android:id="@+id/action_global_homeFragment"
+        app:destination="@id/homeFragment" />
+
+
+    <!-- Global action to navigate to editProfileFragment -->
+    <action
+        android:id="@+id/action_global_editProfile"
+        app:destination="@id/editProfile" />
+
+
+    <!-- Global action to navigate to searchFragment -->
+    <action
+        android:id="@+id/action_global_searchRecipesFragment"
+        app:destination="@id/searchRecipes" />
+
+
+    <!-- Global action to navigate to favouriteRecipesFragment -->
+    <action
+        android:id="@+id/action_global_favouriteRecipes"
+        app:destination="@id/favouriteRecipes" />
+
+    <!-- Global action to navigate to giveFeedbackFragment -->
+    <action
+        android:id="@+id/action_global_giveFeedbackFragment"
+        app:destination="@id/giveFeedback" />
+
+
+</navigation>

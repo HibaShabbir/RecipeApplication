@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditProfile">
+
+    <LinearLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:background="@drawable/rounded_corners"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/pageTitle"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="28dp"
+            android:text="@string/edit_profile_title"
+            android:textColor="@color/black"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            tools:ignore="SpeakableTextPresentCheck">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/subtitle"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="28dp"
+            android:padding="10dp"
+            android:text="@string/edit_profile_subtitle"
+            android:textColor="#4C6F7C"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="SpeakableTextPresentCheck">
+
+        </TextView>
+
+    </LinearLayout>
+
+</FrameLayout>

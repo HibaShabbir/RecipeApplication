@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Diet Types -->
+    <string-array name="diet_types">
+        <item>balanced</item>
+        <item>high-fiber</item>
+        <item>high-protein</item>
+        <item>low-carb</item>
+        <item>low-fat</item>
+        <item>low-sodium</item>
+    </string-array>
+
+    <!-- Health Types -->
+    <string-array name="health_types">
+        <item>celery-free</item>
+        <item>crustacean-free</item>
+        <item>dairy-free</item>
+        <item>DASH</item>
+        <item>egg-free</item>
+        <item>fish-free</item>
+        <item>gluten-free</item>
+        <item>immuno-supportive</item>
+        <item>keto-friendly</item>
+    </string-array>
+
+    <!-- Dish Types -->
+    <string-array name="dish_types">
+        <item>Biscuits and cookies</item>
+        <item>Bread</item>
+        <item>Cereals</item>
+        <item>Condiments and sauces</item>
+        <item>Desserts</item>
+        <item>Drinks</item>
+        <item>Main course</item>
+        <item>Pancake</item>
+        <item>Preps</item>
+        <item>Preserve</item>
+        <item>Salad</item>
+        <item>Sandwiches</item>
+        <item>Side dish</item>
+        <item>Soup</item>
+        <item>Starter</item>
+        <item>Sweets</item>
+    </string-array>
+
+    <!-- Meal Types -->
+    <string-array name="meal_types">
+        <item>breakfast</item>
+        <item>lunch</item>
+        <item>dinner</item>
+        <item>snack</item>
+        <item>teatime</item>
+    </string-array>
+
+</resources>
