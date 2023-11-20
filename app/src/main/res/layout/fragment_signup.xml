@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login">
+    tools:context=".Signup">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -42,21 +42,24 @@
                     android:id="@+id/editTextName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Name" />
+                    android:hint="Name"
+                    android:minHeight="48dp" />
 
 
                 <EditText
                     android:id="@+id/editTextNewUsername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="New Username" />
+                    android:hint="New Username"
+                    android:minHeight="48dp" />
 
                 <EditText
                     android:id="@+id/editTextNewPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="New Password"
-                    android:inputType="textPassword" />
+                    android:inputType="textPassword"
+                    android:minHeight="48dp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -72,6 +75,16 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/search_btn_bg"
                     android:entries="@array/diet_types"
+                    android:minHeight="48dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"/>
+
+                <Spinner
+                    android:id="@+id/spinnerLanguagePreferences"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/search_btn_bg"
+                    android:entries="@array/languagesList"
                     android:minHeight="48dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"/>

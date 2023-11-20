@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Language Types -->
+    <string-array name="languagesList">
+        <item>english</item>
+        <item>french</item>
+    </string-array>
+
     <!-- Diet Types -->
     <string-array name="diet_types">
         <item>balanced</item>
