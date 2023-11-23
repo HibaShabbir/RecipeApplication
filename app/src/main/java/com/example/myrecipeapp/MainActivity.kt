@@ -70,4 +70,11 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+    fun logout() {
+        AuthenticationManager.isAuthenticated = false
+        AuthenticationManager.currentUser = null
+
+        // Optionally, navigate to the login screen or perform any other necessary actions
+    }
+
 }

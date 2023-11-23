@@ -5,9 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.myrecipeapp.databinding.FragmentEditProfileBinding
 
 class EditProfile : Fragment() {
-
+    private lateinit var _binding: FragmentEditProfileBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -17,7 +18,8 @@ class EditProfile : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_edit_profile, container, false)
+        _binding= FragmentEditProfileBinding.inflate(inflater, container, false)
+        return _binding.root
     }
 
 }

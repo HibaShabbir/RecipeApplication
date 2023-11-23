@@ -23,4 +23,5 @@ class HomeFragment : Fragment() {
         return home_binding.root
     }
 
+
 }

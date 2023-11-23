@@ -37,7 +37,7 @@
                 android:textColor="@color/darkGray" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/viewFavouritesButton"
+                android:id="@+id/addToFavouritesButton"
                 android:layout_width="wrap_content"
                 android:layout_height="55dp"
                 android:layout_margin="5dp"

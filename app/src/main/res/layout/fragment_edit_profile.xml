@@ -3,45 +3,117 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".EditProfile">
 
     <LinearLayout
-        android:id="@+id/top"
         android:layout_width="match_parent"
-        android:layout_height="170dp"
-        android:background="@drawable/rounded_corners"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <!-- Top section with title and subtitle -->
+        <LinearLayout
+            android:id="@+id/top"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:background="@drawable/rounded_corners"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/pageTitle"
+                android:layout_width="280dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="28dp"
+                android:text="@string/edit_profile_title"
+                android:textColor="@color/black"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/subtitle"
+                android:layout_width="280dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="28dp"
+                android:padding="10dp"
+                android:text="@string/edit_profile_subtitle"
+                android:textColor="#4C6F7C"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </LinearLayout>
 
 
-        <TextView
-            android:id="@+id/pageTitle"
-            android:layout_width="280dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="28dp"
-            android:text="@string/edit_profile_title"
-            android:textColor="@color/black"
-            android:textSize="40sp"
-            android:textStyle="bold"
-            tools:ignore="SpeakableTextPresentCheck">
+        <LinearLayout
 
-        </TextView>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="30dp"
+            android:padding="30dp">
+            <!-- Username -->
+            <EditText
+                android:id="@+id/editUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/username_hint"
+                android:inputType="text"
+                android:padding="16dp" />
 
-        <TextView
-            android:id="@+id/subtitle"
-            android:layout_width="280dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="28dp"
-            android:padding="10dp"
-            android:text="@string/edit_profile_subtitle"
-            android:textColor="#4C6F7C"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            tools:ignore="SpeakableTextPresentCheck">
+            <!-- Change Password -->
+            <EditText
+                android:id="@+id/editChangePassword"
+                android:layout_width="match_parent"
+                android:hint="@string/password_hint"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:padding="16dp" />
 
-        </TextView>
+            <!-- Name -->
+            <EditText
+                android:id="@+id/editName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/name_hint"
+                android:inputType="text"
+                android:padding="16dp" />
+
+            <!-- Dietary Preferences -->
+            <EditText
+                android:id="@+id/editDietaryPreferences"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/dietary_preferences_hint"
+                android:inputType="text"
+                android:padding="16dp" />
+
+            <!-- Language Preferences -->
+            <EditText
+                android:id="@+id/editLanguagePreferences"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/language_preferences_hint"
+                android:inputType="text"
+                android:padding="16dp" />
+
+            <!-- Logout Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/logoutButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="16dp"
+                android:text="Logout"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:backgroundTint="@color/red"
+                app:rippleColor="@color/yellow"
+                app:icon="@drawable/ic_logout"
+                app:background="@drawable/button_bg" />
+        </LinearLayout>
 
     </LinearLayout>
-
 </FrameLayout>

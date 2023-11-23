@@ -1,9 +1,9 @@
 package com.example.myrecipeapp.RecipeSearchAPI
 
-data class SimpleRecipe(
+data class BaseRecipe(
     val image: String,
     val label: String,
-    val ingredients: List<String>,
+    val ingredients: Int,
     val url: String,
     val calories: Double
 )

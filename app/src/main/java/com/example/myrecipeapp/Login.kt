@@ -42,6 +42,11 @@ class Login : Fragment() {
                     if (userProfile != null) {
                         // Login successful
                         showToast("Login successful")
+
+                        // Update authentication state
+                        AuthenticationManager.isAuthenticated = true
+                        AuthenticationManager.currentUser = userProfile
+
                         val intent = Intent(activity, MainActivity::class.java)
                         startActivity(intent)
                     } else {
@@ -50,8 +55,8 @@ class Login : Fragment() {
                     }
                 }
             }
-
         }
+
 
         _binding.textViewSignup.setOnClickListener {
             val action = LoginDirections.actionLoginToSignup()

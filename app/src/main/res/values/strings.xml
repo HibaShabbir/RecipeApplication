@@ -13,4 +13,9 @@
     <string name="give_feedback_textView">Write your app feedback here !</string>
     <string name="give_feedback_editText">Enter your feedback here</string>
     <string name="submit_feedback">Submit Feedback</string>
+    <string name="language_preferences_hint">English</string>
+    <string name="dietary_preferences_hint">balanced</string>
+    <string name="username_hint">Enter mail eg: xyz@gmail.com</string>
+    <string name="name_hint">Enter Name</string>
+    <string name="password_hint">Enter Password</string>
 </resources>

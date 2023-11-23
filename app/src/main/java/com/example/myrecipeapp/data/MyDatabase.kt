@@ -5,10 +5,11 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [UserProfile::class, Recipe::class], version = 1)
+@Database(entities = [UserProfile::class, RecipeEntity::class,  Feedback::class],  version = 1)
 abstract class MyDatabase : RoomDatabase() {
     abstract fun userProfileDao(): UserProfileDao
     abstract fun recipeDao(): RecipeDao
+    abstract fun feedbackDao(): FeedbackDao
 
     companion object {
         @Volatile

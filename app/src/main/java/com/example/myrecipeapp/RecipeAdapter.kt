@@ -12,15 +12,17 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.example.myrecipeapp.RecipeSearchAPI.SimpleRecipe
+import com.example.myrecipeapp.RecipeSearchAPI.BaseRecipe
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class RecipeAdapter(
-    private val context: Context
+    private val context: Context,
+    private val addToFavoritesListener: (BaseRecipe) -> Unit
 ) : RecyclerView.Adapter<RecipeAdapter.ItemsViewHolder>() {
 
-    private val recipesList = ArrayList<SimpleRecipe>()
+    private val recipesList = ArrayList<BaseRecipe>()
 
-    fun setRecipesList(newList: List<SimpleRecipe>) {
+    fun setRecipesList(newList: List<BaseRecipe>) {
         recipesList.clear()
         recipesList.addAll(newList)
         notifyDataSetChanged()
@@ -39,8 +41,12 @@ class RecipeAdapter(
         holder.recipeName.text = recipesList[position].label
         // Load the image using Coil
         holder.recipeImage.load(recipesList[position].image)
-        holder.recipeIngridientsCount.text = recipesList[position].ingredients.size.toString()
+        holder.recipeIngridientsCount.text = recipesList[position].ingredients.toString()
         holder.recipeCaloriesCount.text = recipesList[position].calories.toString()
+        holder.addToFavoritesButton.setOnClickListener {
+            val recipe = recipesList[position]
+            addToFavoritesListener.invoke(recipe)
+        }
 
         holder.cardView.setOnClickListener {
             // Handle the click event here, e.g., open the recipe link
@@ -62,5 +68,6 @@ class RecipeAdapter(
         val recipeCaloriesCount = itemView.findViewById<TextView>(R.id.countCalories)
         val recipeIngridientsCount = itemView.findViewById<TextView>(R.id.countIngridients)
         val cardView = itemView.findViewById<CardView>(R.id.cardView)
+        val addToFavoritesButton = itemView.findViewById<FloatingActionButton>(R.id.addToFavouritesButton)
     }
 }
