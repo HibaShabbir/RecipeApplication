@@ -79,7 +79,7 @@
                 android:background="#FFFFFF"
                 android:hint="@string/give_feedback_editText"
                 android:inputType="textMultiLine"
-                android:padding="40dp"
+                android:padding="30dp"
                 android:textSize="16sp" />
 
             <!-- RatingBar -->
