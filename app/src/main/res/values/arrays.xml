@@ -2,8 +2,10 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Language Types -->
     <string-array name="languagesList">
-        <item>english</item>
-        <item>french</item>
+        <item>English</item>
+        <item>Urdu</item>
+        <item>Spanish</item>
+        <item>French</item>
     </string-array>
 
     <!-- Diet Types -->

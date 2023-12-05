@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MaRecetteApp</string>
+    <string name="hello_blank_fragment">Bonjour fragment vide</string>
+    <string name="give_feedback_subtitle">Chaque avis compte !</string>
+    <string name="give_feedback_title">Donner un avis</string>
+    <string name="favourite_recipes_title">Mes Favoris</string>
+    <string name="favourite_recipes_subtitle">Retrouvez vos recettes enregistrées ici !</string>
+    <string name="home_fragment_subtitle">Prêt à cuisiner !</string>
+    <string name="edit_profile_subtitle">Détails du profil</string>
+    <string name="edit_profile_title">Modifier le profil</string>
+    <string name="give_feedback_textView">Écrivez votre avis sur l\'application ici !</string>
+    <string name="give_feedback_editText">Saisissez votre avis ici</string>
+    <string name="submit_feedback">Soumettre un avis</string>
+    <string name="language_preferences_hint">Français</string>
+    <string name="dietary_preferences_hint">équilibré</string>
+    <string name="username_hint">Entrez l\'adresse e-mail, par exemple : xyz@gmail.com</string>
+    <string name="name_hint">Entrez le nom</string>
+    <string name="password_hint">Entrez le mot de passe</string>
+    <string name="about_us_description">Bienvenue sur notre application culinaire!
+                                        Nous sommes passionnés par le partage de délicieuses recettes avec vous.
+                                        Explorez une variété de plats alléchants et profitez du voyage culinaire avec nous.</string>
+    <string name="about_us_title">Bienvenue sur notre application culinaire !</string>
+    <string name="about_us_subtitle">Nous sommes passionnés par le partage de délicieuses recettes avec vous.</string>
+    <string name="about_us_paragraph">Explorez une variété de plats alléchants et profitez du voyage culinaire avec nous. Découvrez de nouvelles recettes qui conviennent à vos papilles et préférences. Plongez-vous dans le monde des saveurs et essayez différentes cuisines du monde entier. Notre collection sélectionnée de recettes s\'adresse à tous les palais, des repas rapides et faciles aux délices gastronomiques. Rejoignez-nous pour célébrer la joie de cuisiner et déguster des créations délicieuses.</string>
+    <string name="footer_text">Copyright © 2023 Nom de votre application. Tous droits réservés.</string>
+    <string name="welcomeText">"Bienvenue,"</string>
+    <string name="btnLogoutText">Déconnexion</string>
+    <string name="searchFragTitle">Livre de cuisine</string>
+</resources>

@@ -12,6 +12,7 @@ import com.example.myrecipeapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     //viewBinding and navController for navigation
+
     companion object {
         private var _database: MyDatabase? = null
 
@@ -76,5 +77,6 @@ class MainActivity : AppCompatActivity() {
 
         // Optionally, navigate to the login screen or perform any other necessary actions
     }
+
 
 }

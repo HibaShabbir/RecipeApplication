@@ -9,28 +9,23 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import com.example.myrecipeapp.data.UserProfile
 import com.example.myrecipeapp.databinding.FragmentSignupBinding
-
 
 class Signup : Fragment() {
     private lateinit var _binding: FragmentSignupBinding
     private lateinit var viewModel: UserProfileViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //val authActivity: AuthActivity? = requireActivity() as? AuthActivity
         _binding = FragmentSignupBinding.inflate(layoutInflater, container, false)
-        // Initialize ViewModel
         viewModel = ViewModelProvider(this).get(UserProfileViewModel::class.java)
 
-        val navControllerAuth = activity?.run{
+        val navControllerAuth = activity?.run {
             findNavController(R.id.navControllerAuth)
         }
 
-
-        //navigate to home
         _binding.buttonSignup.setOnClickListener {
             val name = _binding.editTextName.text.toString()
             val username = _binding.editTextNewUsername.text.toString()
@@ -40,29 +35,45 @@ class Signup : Fragment() {
 
             // Check if any of the fields are empty
             if (name.isBlank() || username.isBlank() || password.isBlank()) {
-                // Show a toast message indicating that fields must be filled
                 showToast("Please fill in all the fields.")
             } else {
-                // Create a UserProfile object
-                val userProfile = UserProfile(
-                    username = username,
-                    password = password,
-                    name = name,
-                    dietaryPreference = dietPreference,
-                    languagePreference = languagePreference
+                // Insert the user profile into the Room database
+                viewModel.insertUserProfile(
+                    name,
+                    username,
+                    password,
+                    dietPreference,
+                    languagePreference
                 )
 
-                // Insert the user profile into the Room database
-                viewModel.insertUserProfile(userProfile)
+                // Observe password validation status
+                viewModel.passwordValidationStatus.observe(viewLifecycleOwner) { isValid ->
+                    if (isValid) {
+                        // Navigate to MainActivity
+                        val intent = Intent(activity, MainActivity::class.java)
+                        startActivity(intent)
+                    } else {
+                        // Password is invalid, show a toast message
+                        showToast("Invalid password. Password must contain at least one uppercase letter, one digit, and one special character.")
+                    }
+                }
 
-                // Navigate to MainActivity
-                val intent = Intent(activity, MainActivity::class.java)
-                startActivity(intent)
+
+                // Observe username validation status
+                viewModel.usernameValidationStatus.observe(viewLifecycleOwner) { isValid ->
+                    if (isValid) {
+                        // Navigate to MainActivity
+                        val intent = Intent(activity, MainActivity::class.java)
+                        startActivity(intent)
+                    } else {
+                        showToast("Invalid username. Please enter a valid email address.")
+                    }
+                }
             }
         }
 
-        _binding.textViewLogin.setOnClickListener{
-            //on click navigate to login page
+        _binding.textViewLogin.setOnClickListener {
+            // On click, navigate to the login page
             val action = SignupDirections.actionSignupToLogin()
             navControllerAuth?.let {
                 it.navigate(action)

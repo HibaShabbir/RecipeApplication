@@ -1,12 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">MyRecipeApp</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="give_feedback_subtitle">Every review matters !</string>
     <string name="give_feedback_title">Give Feedback</string>
     <string name="favourite_recipes_title">My Favourites</string>
     <string name="favourite_recipes_subtitle">Find your saved recipes here !</string>
-    <string name="home_fragment_title">Hello hiba,</string>
     <string name="home_fragment_subtitle">Ready to cook!</string>
     <string name="edit_profile_subtitle">Profile Details</string>
     <string name="edit_profile_title">Edit Profile</string>
@@ -18,4 +17,15 @@
     <string name="username_hint">Enter mail eg: xyz@gmail.com</string>
     <string name="name_hint">Enter Name</string>
     <string name="password_hint">Enter Password</string>
+    <string name="about_us_description">Welcome to our food app!\n
+                                        We are passionate about sharing delicious recipes with you.\n
+                                        Explore a variety of mouth-watering dishes and enjoy the culinary journey with us.</string>
+    <string name="about_us_title">Welcome to Our Food App!</string>
+    <string name="about_us_subtitle">We are passionate about sharing delicious recipes with you.</string>
+    <string name="about_us_paragraph">Explore a variety of mouth-watering dishes and enjoy the culinary journey with us. Discover new recipes that suit your taste buds and preferences. Immerse yourself in the world of flavors and try out different cuisines from around the globe. Our curated collection of recipes caters to every palate, from quick and easy meals to gourmet delights. Join us in celebrating the joy of cooking and savoring delicious creations.</string>
+    <string name="footer_text">Copyright © 2023 Your App Name. All rights reserved.</string>
+    <string name="welcomeText">"Welcome,"</string>
+    <string name="btnLogoutText">Logout</string>
+    <string name="searchFragTitle">Cook Book</string>
+    <string name="btnSaveText">Save</string>
 </resources>

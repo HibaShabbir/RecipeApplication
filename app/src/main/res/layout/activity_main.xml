@@ -7,103 +7,101 @@
     tools:context=".MainActivity">
 
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/navControllerContainer"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/lightYellow"
-        app:layout_constraintBottom_toTopOf="@+id/panel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:navGraph="@navigation/nav_graph" />
-
-    <LinearLayout
-        android:id="@+id/panel"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:paddingBottom="10dp"
-        android:background="#FFC107"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent">
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/navControllerContainer"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/lightYellow"
+            app:layout_constraintBottom_toTopOf="@+id/panel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:navGraph="@navigation/nav_graph" />
 
         <LinearLayout
-            android:id="@+id/navOptions"
+            android:id="@+id/panel"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/navControllerContainer"
-            app:layout_constraintVertical_bias="1.0">
+            android:layout_height="0dp"
+            android:background="#FFC107"
+            android:orientation="vertical"
+            android:paddingBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent">
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/viewHomeButton"
+            <LinearLayout
+                android:id="@+id/navOptions"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_margin="5dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/navControllerContainer"
+                app:layout_constraintVertical_bias="1.0">
 
-                android:background="@color/white"
-                android:clickable="true"
-                app:srcCompat="@drawable/baseline_home_50"
-                tools:ignore="SpeakableTextPresentCheck" />
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/viewHomeButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_margin="5dp"
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/viewProfileButton"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_margin="5dp"
+                    android:background="@color/white"
+                    android:clickable="true"
+                    app:srcCompat="@drawable/baseline_home_50"
+                    tools:ignore="SpeakableTextPresentCheck" />
 
-                android:background="@color/white"
-                android:clickable="true"
-                app:srcCompat="@drawable/baseline_person_50"
-                tools:ignore="SpeakableTextPresentCheck" />
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/viewProfileButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_margin="5dp"
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/viewSearchButton"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_margin="5dp"
+                    android:background="@color/white"
+                    android:clickable="true"
+                    app:srcCompat="@drawable/baseline_person_50"
+                    tools:ignore="SpeakableTextPresentCheck" />
 
-                android:background="@color/white"
-                android:clickable="true"
-                app:srcCompat="@drawable/baseline_search_24"
-                tools:ignore="SpeakableTextPresentCheck" />
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/viewSearchButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_margin="5dp"
+
+                    android:background="@color/white"
+                    android:clickable="true"
+                    app:srcCompat="@drawable/baseline_search_24"
+                    tools:ignore="SpeakableTextPresentCheck" />
 
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/viewFavouritesButton"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_margin="5dp"
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/viewFavouritesButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_margin="5dp"
 
-                android:background="@color/white"
-                android:clickable="true"
-                app:srcCompat="@drawable/baseline_favorite_50"
-                tools:ignore="SpeakableTextPresentCheck" />
+                    android:background="@color/white"
+                    android:clickable="true"
+                    app:srcCompat="@drawable/baseline_favorite_50"
+                    tools:ignore="SpeakableTextPresentCheck" />
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/giveFeedbackButton"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_margin="5dp"
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/giveFeedbackButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_margin="5dp"
 
-                android:background="@color/white"
-                android:clickable="true"
-                app:srcCompat="@drawable/outline_rate_review_24"
-                tools:ignore="SpeakableTextPresentCheck" />
+                    android:background="@color/white"
+                    android:clickable="true"
+                    app:srcCompat="@drawable/outline_rate_review_24"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </LinearLayout>
+
+
         </LinearLayout>
-
-
-    </LinearLayout>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

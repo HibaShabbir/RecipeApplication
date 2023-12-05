@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyRecipeApp</string>
+    <string name="hello_blank_fragment">ہیلو خالی فریگمنٹ</string>
+    <string name="give_feedback_subtitle">ہر جائزہ اہم ہے!</string>
+    <string name="give_feedback_title">فیڈبیک دیں</string>
+    <string name="favourite_recipes_title">میرے پسندیدہ</string>
+    <string name="favourite_recipes_subtitle">یہاں آپ کی محفوظ ریسپیز تلاش کریں!</string>
+    <string name="home_fragment_subtitle">پکانے کے لئے تیار ہو!</string>
+    <string name="edit_profile_subtitle">پروفائل کی تفصیلات</string>
+    <string name="edit_profile_title">پروفائل ترتیب دیں</string>
+    <string name="give_feedback_textView">یہاں اپنے ایپ کے بارے میں آپ کی رائے لکھیں!</string>
+    <string name="give_feedback_editText">یہاں آپ کی رائے لکھیں</string>
+    <string name="submit_feedback">رائے دیں</string>
+    <string name="language_preferences_hint">اردو</string>
+    <string name="dietary_preferences_hint">توازن یافتہ</string>
+    <string name="username_hint">ای میل درج کریں، مثلاً: xyz@gmail.com</string>
+    <string name="name_hint">نام درج کریں</string>
+    <string name="password_hint">پاسورڈ درج کریں</string>
+    <string name="about_us_description">ہماری فوڈ ایپ میں خوش آمدید!\n
+                                        ہم آپ کے ساتھ لذیذ تراکیب سے آشنا ہونے کا شوق رکھتے ہیں۔\n
+                                        ہمارے ساتھ موہ لینے والے ڈشز کی مختلف قسمیں دیکھیں اور ہمارے ساتھ کلینری سفر کا لطف اُٹھائیں۔</string>
+    <string name="about_us_title">ہماری فوڈ ایپ میں خوش آمدید!</string>
+    <string name="about_us_subtitle">ہم آپ کے ساتھ لذیذ تراکیب سے آشنا ہونے کا شوق رکھتے ہیں۔</string>
+    <string name="about_us_paragraph">مختلف موہ لینے والے ڈشز کی مختلف قسموں کو ڈسکوور کریں اور ہمارے ساتھ ہر جہازی ذائقے کا لطف اُٹھائیں۔ ڈنگوئریا کے دھنیا میں مشغول ہونے کا لطف اُٹھائیں اور دنیا بھر سے مختلف کھانوں کی کھانوں کو آزمائیں۔ ہماری چنی گئی تراکیب کا مجموعہ ہر چکنے کے لئے ہے، جلدی اور آسان کھانوں سے لے کر گورمے خواہشات تک۔ ہمیں پکوان بنانے اور لذیذ تخلیقات کا لطف اُٹھانے میں ہمراہی دیں۔</string>
+    <string name="footer_text">کاپی رائٹ © 2023 آپ کے ایپ کا نام۔ تمام حقوق محفوظ ہیں۔</string>
+    <string name="welcomeText">"خوش آمدید،"</string>
+    <string name="btnLogoutText">لاگ آؤٹ</string>
+    <string name="searchFragTitle">کتابِ پکوان</string>
+</resources>

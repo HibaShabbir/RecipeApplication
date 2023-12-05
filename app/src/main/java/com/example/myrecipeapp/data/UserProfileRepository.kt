@@ -13,6 +13,10 @@ class UserProfileRepository(private val userProfileDao: UserProfileDao) {
         return userProfileDao.findUserProfile(username, password)
     }
 
+    suspend fun updateUserProfile(userProfile: UserProfile) {
+        userProfileDao.updateUserProfile(userProfile)
+    }
+
     fun getAllUserProfiles(): LiveData<List<UserProfile>> {
         return allUserProfilesLiveData
     }
