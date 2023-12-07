@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.Button
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.myrecipeapp.data.UserProfile
@@ -40,7 +41,6 @@ class EditProfile : Fragment() {
         userProfileViewModel = ViewModelProvider(this).get(UserProfileViewModel::class.java)
 
         _binding.editName.setText(currentUser.name)
-        _binding.editUsername.setText(currentUser.username)
         _binding.editDietaryPreferences.setSelection(getDietPreferenceIndex(currentUser.dietaryPreference))
         _binding.editLanguagePreferences.setSelection(getLanguagePreferenceIndex(currentUser.languagePreference))
 
@@ -113,6 +113,8 @@ class EditProfile : Fragment() {
                 languagePreference
             )
 
+            showToast("Successfully updated your data !")
+
 
         }
         return _binding.root
@@ -146,26 +148,31 @@ class EditProfile : Fragment() {
         // Update UI elements with the new translations
         _binding.pageTitle.text = getString(R.string.edit_profile_title)
         _binding.subtitle.text = getString(R.string.edit_profile_subtitle)
-        _binding.editUsername.hint = getString(R.string.username_hint)
         _binding.editName.hint = getString(R.string.name_hint)
-        _binding.editChangePassword.hint = getString(R.string.password_hint)
         _binding.logoutButton.text = getString(R.string.btnLogoutText)
     }
 
     private fun saveSelectedLanguage(language: String) {
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext())
         sharedPreferences.edit().putString("selected_language", language).apply()
+
+        //save it to rooomdb as well
     }
 
     private fun loadSelectedLanguage(): String {
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext())
-        return sharedPreferences.getString("selected_language", "en") ?: "en"
+        val selectedLanguage = sharedPreferences.getString("selected_language", "")
+        return if (selectedLanguage.isNullOrEmpty()) "en" else selectedLanguage
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         Log.d("EditProfile", "onConfigurationChanged")
         // Configuration change is handled dynamically, so no need to recreate the activity.
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 }
 

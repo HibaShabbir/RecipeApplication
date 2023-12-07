@@ -1,6 +1,7 @@
 package com.example.myrecipeapp
 
 import android.app.Application
+import android.util.Log
 import android.util.Patterns
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
@@ -9,6 +10,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.myrecipeapp.data.MyDatabase
 import com.example.myrecipeapp.data.UserProfile
 import com.example.myrecipeapp.data.UserProfileRepository
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 
 // UserProfileViewModel
@@ -40,22 +42,37 @@ class UserProfileViewModel(application: Application) : AndroidViewModel(applicat
         languagePreference: String
     ) {
         if (isPasswordValid(password) && isUsernameValid(username)) {
-            val userProfile = UserProfile(
-                username = username,
-                password = password,
-                name = name,
-                dietaryPreference = dietPreference,
-                languagePreference = languagePreference
-            )
 
-            viewModelScope.launch {
-                repository.insertUserProfile(userProfile)
-            }
+            FirebaseAuth.getInstance().createUserWithEmailAndPassword(username, password)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        val userProfile = UserProfile(
+                            username = username,
+                            password = password,
+                            name = name,
+                            dietaryPreference = dietPreference,
+                            languagePreference = languagePreference
+                        )
 
+                        viewModelScope.launch {
+                            repository.insertUserProfile(userProfile)
+                        }
+
+                        // Update authentication state
+                        AuthenticationManager.isAuthenticated = true
+                        AuthenticationManager.currentUser = userProfile
+
+                        Log.d("UserViewModel", "Successful username password")
+                    }
+
+                }
+            _passwordValidationStatus.value = true
+            _usernameValidationStatus.value = true
         } else {
             // Notify the UI about the invalid password or username
             _passwordValidationStatus.value = false
             _usernameValidationStatus.value = false
+            Log.d("UserViewModel", "Failed username password")
         }
     }
 

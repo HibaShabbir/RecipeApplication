@@ -44,7 +44,7 @@
                 android:layout_weight="0"
                 android:background="@color/lightYellow"
                 android:clickable="true"
-                app:srcCompat="@drawable/baseline_favorite_50"
+                app:srcCompat="@drawable/baseline_favorite_unfilled"
                 tools:ignore="SpeakableTextPresentCheck" />
 
         </LinearLayout>

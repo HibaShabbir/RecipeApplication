@@ -86,7 +86,7 @@
 
                     android:background="@color/white"
                     android:clickable="true"
-                    app:srcCompat="@drawable/baseline_favorite_50"
+                    app:srcCompat="@drawable/baseline_favorite_unfilled"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton

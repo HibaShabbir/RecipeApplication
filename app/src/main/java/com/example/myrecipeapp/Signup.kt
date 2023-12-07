@@ -46,27 +46,25 @@ class Signup : Fragment() {
                     languagePreference
                 )
 
-                // Observe password validation status
-                viewModel.passwordValidationStatus.observe(viewLifecycleOwner) { isValid ->
-                    if (isValid) {
-                        // Navigate to MainActivity
-                        val intent = Intent(activity, MainActivity::class.java)
-                        startActivity(intent)
-                    } else {
-                        // Password is invalid, show a toast message
-                        showToast("Invalid password. Password must contain at least one uppercase letter, one digit, and one special character.")
-                    }
-                }
 
 
                 // Observe username validation status
                 viewModel.usernameValidationStatus.observe(viewLifecycleOwner) { isValid ->
-                    if (isValid) {
-                        // Navigate to MainActivity
-                        val intent = Intent(activity, MainActivity::class.java)
-                        startActivity(intent)
-                    } else {
+                    if (isValid.not())
                         showToast("Invalid username. Please enter a valid email address.")
+                    else{
+                        // Observe password validation status
+                        viewModel.passwordValidationStatus.observe(viewLifecycleOwner) { isValid ->
+                            if (isValid.not())
+                            // Password is invalid, show a toast message
+                                showToast("Invalid password. Password must contain at least one uppercase letter, one digit, and one special character.")
+                            else{
+                                showToast("Successful Signup!")
+                                val intent = Intent(activity, MainActivity::class.java)
+                                startActivity(intent)
+
+                            }
+                        }
                     }
                 }
             }
