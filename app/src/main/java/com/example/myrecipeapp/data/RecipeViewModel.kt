@@ -23,6 +23,13 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application) 
         }
     }
 
+    fun getAllRecipesForUser(userId: String): LiveData<List<BaseRecipe>> {
+        return repository.getAllRecipesForUser(userId).map { recipeEntities ->
+            recipeEntities.map { it.baseRecipe }
+        }
+    }
+
+
     fun getRecipeById(recipeId: String): LiveData<RecipeEntity> {
         return repository.getRecipeById(recipeId)
     }

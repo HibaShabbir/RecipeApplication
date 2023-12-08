@@ -7,6 +7,10 @@ class RecipeRepository(private val recipeDao: RecipeDao) {
         return recipeDao.getAllRecipes()
     }
 
+    fun getAllRecipesForUser(userId: String): LiveData<List<RecipeEntity>> {
+        return recipeDao.getAllRecipesForUser(userId)
+    }
+
     fun getRecipeById(recipeId: String): LiveData<RecipeEntity> {
         return recipeDao.getRecipeById(recipeId)
     }

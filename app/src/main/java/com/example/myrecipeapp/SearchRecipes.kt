@@ -45,14 +45,15 @@ fun createRecipeApi(): RecipeApi {
 class SearchRecipes : Fragment() {
     private lateinit var _binding: FragmentSearchRecipesBinding
     private lateinit var recipeAdapter: RecipeAdapter // You need to create an adapter for your RecyclerView
-
+    private var currUser = AuthenticationManager.currentUser!!.username
     private val recipeViewModel: RecipeViewModel by viewModels()
 
     private val addToFavoritesListener: (BaseRecipe) -> Unit = { baseRecipe ->
         // Convert BaseRecipe to RecipeEntity before adding to favorites
         val recipeEntity = RecipeEntity(
             recipeId = generateRecipeId(), // You need to generate a unique ID for the recipe
-            baseRecipe = baseRecipe
+            baseRecipe = baseRecipe,
+            userId = currUser
             // Other specific properties for Room database
         )
 

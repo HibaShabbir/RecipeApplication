@@ -12,6 +12,9 @@ interface RecipeDao {
     @Query("SELECT * FROM recipes")
     fun getAllRecipes(): LiveData<List<RecipeEntity>>
 
+    @Query("SELECT * FROM recipes WHERE userId = :userId")
+    fun getAllRecipesForUser(userId: String): LiveData<List<RecipeEntity>>
+
     @Query("SELECT * FROM recipes WHERE recipeId = :recipeId")
     fun getRecipeById(recipeId: String): LiveData<RecipeEntity>
 

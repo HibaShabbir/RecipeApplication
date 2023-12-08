@@ -18,10 +18,11 @@ class FavouriteRecipes : Fragment() {
     private lateinit var _binding: FragmentFavouriteRecipesBinding
     private lateinit var viewModel: RecipeViewModel
     private var favouriteRecipes: ArrayList<Recipe> = ArrayList()
+    private var currentUser = AuthenticationManager.currentUser!!.username
 
     private val adapter: RecipeAdapter by lazy {
         RecipeAdapter(requireContext()) { recipe ->
-            viewModel.addToFavorites(mapToRecipeEntity(recipe))
+            viewModel.addToFavorites(mapToRecipeEntity(recipe, currentUser))
         }
     }
 
@@ -45,14 +46,15 @@ class FavouriteRecipes : Fragment() {
     }
 
     private fun observeFavouriteRecipes() {
-        viewModel.getAllRecipes().observe(viewLifecycleOwner) { recipes ->
+        viewModel.getAllRecipesForUser(currentUser).observe(viewLifecycleOwner) { recipes ->
             adapter.setRecipesList(recipes)
         }
     }
 
-    private fun mapToRecipeEntity(recipe: BaseRecipe): RecipeEntity {
+    private fun mapToRecipeEntity(recipe: BaseRecipe, currUser:String): RecipeEntity {
         return RecipeEntity(
-            baseRecipe = recipe
+            baseRecipe = recipe,
+            userId = currUser
         )
     }
 }
