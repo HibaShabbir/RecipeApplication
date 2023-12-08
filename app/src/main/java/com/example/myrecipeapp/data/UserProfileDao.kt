@@ -10,7 +10,9 @@ import androidx.room.Update
 @Dao
 interface UserProfileDao {
     @Query("SELECT * FROM user_profiles WHERE username = :username AND password = :password")
-    fun findUserProfile(username: String, password: String): LiveData<UserProfile?>
+    fun loginUser(username: String, password: String): LiveData<UserProfile?>
+    @Query("SELECT * FROM user_profiles WHERE username = :username")
+    fun findUserProfile(username: String): LiveData<UserProfile?>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertUserProfile(userProfile: UserProfile)

@@ -38,7 +38,7 @@ class Login : Fragment() {
             val password = _binding.editTextPassword.text.toString()
 
             lifecycleScope.launch {
-                viewModel.findUserProfile(username, password).observe(viewLifecycleOwner) { userProfile ->
+                viewModel.loginUser(username, password).observe(viewLifecycleOwner) { userProfile ->
                     if (userProfile != null) {
                         // Login successful
                         showToast("Login successful")

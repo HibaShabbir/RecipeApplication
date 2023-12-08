@@ -15,8 +15,10 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.example.myrecipeapp.data.UserProfile
 import com.example.myrecipeapp.databinding.FragmentEditProfileBinding
+import kotlinx.coroutines.launch
 
 class EditProfile : Fragment() {
     private lateinit var _binding: FragmentEditProfileBinding
@@ -40,9 +42,15 @@ class EditProfile : Fragment() {
         _binding = FragmentEditProfileBinding.inflate(inflater, container, false)
         userProfileViewModel = ViewModelProvider(this).get(UserProfileViewModel::class.java)
 
-        _binding.editName.setText(currentUser.name)
-        _binding.editDietaryPreferences.setSelection(getDietPreferenceIndex(currentUser.dietaryPreference))
-        _binding.editLanguagePreferences.setSelection(getLanguagePreferenceIndex(currentUser.languagePreference))
+        lifecycleScope.launch {
+            userProfileViewModel.findUserProfile(currentUser.username).observe(viewLifecycleOwner) { userProfile ->
+                currentUser = userProfile ?: currentUser
+                _binding.editName.setText(currentUser.name)
+                _binding.editDietaryPreferences.setSelection(getDietPreferenceIndex(currentUser.dietaryPreference))
+                _binding.editLanguagePreferences.setSelection(getLanguagePreferenceIndex(currentUser.languagePreference))
+
+            }
+        }
 
 
         val languageSpinner: Spinner = _binding.editLanguagePreferences
@@ -112,9 +120,7 @@ class EditProfile : Fragment() {
                 dietPreference,
                 languagePreference
             )
-
             showToast("Successfully updated your data !")
-
 
         }
         return _binding.root
@@ -130,12 +136,19 @@ class EditProfile : Fragment() {
         val selectedLanguage = loadSelectedLanguage()
         val position = languagesList.indexOf(selectedLanguage)
         _binding.editLanguagePreferences.setSelection(position)
+
     }
 
     // Helper function to get the index of diet preference in the spinner
-    private fun getDietPreferenceIndex(dietPreference: String): Int {
-        // Replace this with your logic to get the index based on the actual values in the spinner
-        return languagesList.indexOf(dietPreference)
+    private fun getDietPreferenceIndex(dietaryPreference: String?): Int {
+        val dietPreferences = resources.getStringArray(R.array.diet_types)
+
+        return if (dietaryPreference != null && dietPreferences.contains(dietaryPreference)) {
+            dietPreferences.indexOf(dietaryPreference)
+        } else {
+            // Default to the first item or handle the case when the preference is not found
+            0
+        }
     }
 
     // Helper function to get the index of language preference in the spinner

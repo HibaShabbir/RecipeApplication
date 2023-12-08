@@ -10,10 +10,10 @@ import android.widget.LinearLayout
 import android.widget.Spinner
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.myrecipeapp.RecipeSearchAPI.BaseRecipe
-import com.example.myrecipeapp.RecipeSearchAPI.Recipe
 import com.example.myrecipeapp.RecipeSearchAPI.RecipeApi
 import com.example.myrecipeapp.data.RecipeEntity
 import com.example.myrecipeapp.data.RecipeViewModel
@@ -45,6 +45,7 @@ fun createRecipeApi(): RecipeApi {
 class SearchRecipes : Fragment() {
     private lateinit var _binding: FragmentSearchRecipesBinding
     private lateinit var recipeAdapter: RecipeAdapter // You need to create an adapter for your RecyclerView
+    private lateinit var userProfileViewModel: UserProfileViewModel
     private var currUser = AuthenticationManager.currentUser!!.username
     private val recipeViewModel: RecipeViewModel by viewModels()
 
@@ -63,11 +64,38 @@ class SearchRecipes : Fragment() {
         return UUID.randomUUID().mostSignificantBits
     }
 
+    private fun getDietPreferenceIndex(dietaryPreference: String?): Int {
+        // Assuming your spinner items are stored in an array or list
+        val dietPreferences = resources.getStringArray(R.array.diet_types)
+
+        return if (dietaryPreference != null && dietPreferences.contains(dietaryPreference)) {
+            dietPreferences.indexOf(dietaryPreference)
+        } else {
+            // Default to the first item or handle the case when the preference is not found
+            0
+        }
+    }
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentSearchRecipesBinding.inflate(layoutInflater, container, false)
+        userProfileViewModel = ViewModelProvider(this).get(UserProfileViewModel::class.java)
+
+        // Set the text dynamically based on the current user
+        lifecycleScope.launch {
+            userProfileViewModel.findUserProfile(currUser)
+                .observe(viewLifecycleOwner) { userProfile ->
+                    val dietaryPreference = userProfile?.dietaryPreference
+                    val position = getDietPreferenceIndex(dietaryPreference)
+                    _binding.spinnerGroupDiet.setSelection(position)
+                }
+        }
+
+
+        _binding.spinnerHealthTypes
         setupUI()
         return _binding.root
     }
@@ -75,7 +103,6 @@ class SearchRecipes : Fragment() {
     private fun setupUI() {
         val btnFilter = _binding.btnFilter
         val filterOptionsLayout: LinearLayout = _binding.filterOptionsLayout
-        val recyclerView: RecyclerView = _binding.recyclerView
         val searchBar: EditText = _binding.searchBar
         val floatingSearchButton: FloatingActionButton = _binding.floatingSearchButton
         val spinnerMealType: Spinner = _binding.spinnerMealType
@@ -93,7 +120,6 @@ class SearchRecipes : Fragment() {
         }
 
         // Initialize your RecyclerView and its adapter
-        val recipes: ArrayList<Recipe> = ArrayList()
         val recipesRecyclerView = _binding.recyclerView
         recipesRecyclerView.setLayoutManager(LinearLayoutManager(requireContext()))
         val recipeAdapter: RecipeAdapter = RecipeAdapter(requireContext(),addToFavoritesListener)

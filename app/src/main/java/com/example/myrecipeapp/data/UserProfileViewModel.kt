@@ -110,8 +110,12 @@ class UserProfileViewModel(application: Application) : AndroidViewModel(applicat
         return emailPattern.matcher(username).matches()
     }
 
-    suspend fun findUserProfile(username: String, password: String): LiveData<UserProfile?> {
-        return repository.findUserProfile(username, password)
+    suspend fun loginUser(username: String, password: String): LiveData<UserProfile?> {
+        return repository.loginUser(username, password)
+    }
+
+    suspend fun findUserProfile(username: String): LiveData<UserProfile?> {
+        return repository.findUserProfile(username)
     }
 
 }
